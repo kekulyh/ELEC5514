@@ -1,0 +1,37 @@
+case '0':
+					printf("\r\nPlease input an int variable from 256 to 999:");
+					char num1char1;
+					char num2char2;
+					char num3char3;
+					num1char1 = ConsoleGet();
+					ConsolePut(num1char1);
+					num2char2 = ConsoleGet();
+					ConsolePut(num2char2);
+					num3char3 = ConsoleGet();
+					ConsolePut(num3char3);
+					int num11 = num1char1-'0';
+					int num22 = num2char2-'0';
+					int num33 = num3char3-'0';
+					int number = num11*100 + num22*10 + num33*1;					
+					char hex[8]={0};
+					int count11 = 0;
+					
+					for (count11 = 8; count11>0; count11--){
+						hex[count11-1] = number%16;
+						if (number%16<10){
+							hex[count11-1] = number%16 +'0';
+						}else{
+							if(number%16 <16){
+								hex[count11-1] = number%16 -10 +'A';
+							}
+							
+						}
+						number = number/16;
+						//ConsolePut(hex[count11-1]);
+					}
+					printf("\r\nHex value is: 0x");
+					int count22 = 0;
+					for(count22 = 0; count22 <8; count22++){
+						ConsolePut(hex[count22]);
+					}
+					break;

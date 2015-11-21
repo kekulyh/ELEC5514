@@ -1,0 +1,55 @@
+case '8':
+					
+					printf("\r\nPlease input two numbers of [0,9]:");
+					char num1char;
+					char num2char;
+					char blank1;
+					int num1=0;
+					int num2=0;
+					num1char = ConsoleGet();
+					ConsolePut(num1char);
+					blank1 = ConsoleGet();
+					ConsolePut(blank1);
+					num2char = ConsoleGet();
+					ConsolePut(num2char);
+					num1 = num1char - '0';
+					num2 = num2char - '0';
+					int sum = num1 + num2;//decimal
+					int sumh = sum;
+					
+					char sumstring[3] = {0};
+					int count1 = 0;
+					for(count1 = 2; count1>0; count1--){
+						sumstring[count1-1] = sum%10;
+						sum = sum/10;
+					}
+					printf("\r\nSum(Decimal) is: ");
+					int count2 = 0;
+					if(sumstring[0] == 0){
+						ConsolePut(sumstring[1]+'0');
+					}else{
+						for(count2 = 0; count2<2; count2++){
+							ConsolePut(sumstring[count2]+'0');
+						}
+					}
+					printf("\r\nSum(hex) is: 0x");
+					char sumhex[3];
+					if(sumh<10){
+						sumhex[0] = sumh+'0';
+					}else{
+						if(sumh<16){
+							sumhex[0] = sumh-10+'A';
+						}else{
+							sumhex[0] = 1+'0';
+							sumhex[1] = sumh%16 + '0';
+						}
+						
+					}
+					
+					int count3 = 0;
+					
+					for(count3 = 0; count3<2; count3++){
+						ConsolePut(sumhex[count3]);
+						
+					}
+					break;

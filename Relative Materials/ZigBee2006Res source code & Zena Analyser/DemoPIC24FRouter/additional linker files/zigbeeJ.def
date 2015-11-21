@@ -1,0 +1,145 @@
+//*********************************************************************
+//*                                                                    
+//* Software License Agreement                                         
+//*                                                                    
+//* Copyright © 2004-2007 Microchip Technology Inc.  All rights reserved.
+//*
+//* Microchip licenses to you the right to use, copy and distribute Software 
+//* only when embedded on a Microchip microcontroller or digital signal 
+//* controller and used with a Microchip radio frequency transceiver, which 
+//* are integrated into your product or third party product (pursuant to the 
+//* sublicense terms in the accompanying license agreement).  You may NOT 
+//* modify or create derivative works of the Software.  
+//*
+//* If you intend to use this Software in the development of a product for 
+//* sale, you must be a member of the ZigBee Alliance.  For more information, 
+//* go to www.zigbee.org.
+//*
+//* You should refer to the license agreement accompanying this Software for 
+//* additional information regarding your rights and obligations.
+//*
+//* SOFTWARE AND DOCUMENTATION ARE PROVIDED “AS IS” WITHOUT WARRANTY OF ANY 
+//* KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION, ANY WARRANTY 
+//* OF MERCHANTABILITY, TITLE, NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR 
+//* PURPOSE. IN NO EVENT SHALL MICROCHIP OR ITS LICENSORS BE LIABLE OR OBLIGATED 
+//* UNDER CONTRACT, NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF 
+//* WARRANTY, OR OTHER LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR 
+//* EXPENSES INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, 
+//* PUNITIVE OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF 
+//* PROCUREMENT OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY 
+//* THIRD PARTIES (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER 
+//* SIMILAR COSTS.
+//*                                
+//*                                                                    
+//*********************************************************************
+
+// Created by ZENA(TM) Version 1.3.23.0, 1/9/2007, 14:28:02
+
+// This definition file was created for use with the following:
+//     Processor:           PIC18F87J10
+//     Transceiver:         Microchip MRF24J40
+//     ZigBee Device:       Router
+//     Nonvolatile Storage: 25LC256
+
+// ***** Any changes should be made by regenerating the file with ZENA(TM) *****
+
+#ifndef _ZIGBEE_DEF
+#define _ZIGBEE_DEF
+
+
+// PIC Information
+
+#define CLOCK_FREQ 40000000
+#define BAUD_RATE 19200
+#define HEAP_LOCATION 0x0100
+#define MAX_HEAP_SIZE 2048
+
+// Non-volatile Storage Information
+
+#define USE_EXTERNAL_NVM
+#define EXTERNAL_NVM_BYTES 32768
+#define EEPROM_PAGE_SIZE 64
+#define EEPROM_nCS LATDbits.LATD0
+#define EEPROM_nCS_TRIS TRISDbits.TRISD0
+#define RF_SSPIF_BIT PIR1bits.SSP1IF
+#define RF_SSPBUF_REG SSP1BUF
+#define RF_WCOL_BIT SSP1CON1bits.WCOL
+#define RF_SSPSTAT_REG SSP1STAT
+#define RF_SSPCON1_REG SSP1CON1
+#define EE_SSPIF_BIT PIR3bits.SSP2IF
+#define EE_SSPBUF_REG SSP2BUF
+#define EE_WCOL_BIT SSP2CON1bits.WCOL
+#define EE_SSPSTAT_REG SSP2STAT
+#define EE_SSPCON1_REG SSP2CON1
+
+// Device MAC Address
+
+#define MAC_LONG_ADDR_BYTE7 0x00
+#define MAC_LONG_ADDR_BYTE6 0x04
+#define MAC_LONG_ADDR_BYTE5 0xA3
+#define MAC_LONG_ADDR_BYTE4 0x00
+#define MAC_LONG_ADDR_BYTE3 0x00
+#define MAC_LONG_ADDR_BYTE2 0x00
+#define MAC_LONG_ADDR_BYTE1 0x00
+#define MAC_LONG_ADDR_BYTE0 0x70
+
+// ZigBee Device Information
+
+#define I_AM_ROUTER
+#define I_AM_FFD
+#define I_SUPPORT_ROUTING
+#define MY_CAPABILITY_INFO 0x8E
+
+// ZDO Configuration
+
+
+// APS Configuration
+
+#define MAX_APL_FRAMES 4
+#define MAX_APS_ACK_FRAMES 4
+#define MAX_APS_ADDRESSES 5
+#define NUM_BUFFERED_INDIRECT_MESSAGES 0
+
+// NWK Configuration
+
+#define MAX_NEIGHBORS 25
+#define NUM_BUFFERED_BROADCAST_MESSAGES 3
+#define ROUTE_DISCOVERY_TABLE_SIZE 4
+#define ROUTING_TABLE_SIZE 16
+#define RESERVED_ROUTING_TABLE_ENTRIES 8
+#define NUM_BUFFERED_ROUTING_MESSAGES 4
+
+// MAC Configuration
+
+#define MINIMUM_JOIN_LQI 48
+#define MAC_PIB_macTransactionPersistenceTime 599999    // 7.68 seconds
+#define RX_BUFFER_SIZE 256
+#define RX_BUFFER_LOCATION 0xa00
+#define MAC_PIB_macBeaconOrder 15
+#define MAC_PIB_macSuperframeOrder 15
+#define MAC_PIB_macBattLifeExt FALSE
+
+// Transceiver Information
+
+#define RF_CHIP MRF24J40
+#define MAC_PIB_macAckWaitDuration (54+3)
+#define PHY_CS LATCbits.LATC0
+#define PHY_CS_TRIS TRISCbits.TRISC0
+#define PHY_RESETn LATCbits.LATC2
+#define PHY_RESETn_TRIS TRISCbits.TRISC2
+#define PHY_WAKE LATCbits.LATC1
+#define PHY_WAKE_TRIS TRISCbits.TRISC1
+#define PA_LEVEL 0x00  // -0.00 dBm
+#define FREQUENCY_BAND FB_2400GHz
+#define ALLOWED_CHANNELS 0x00020000
+// SPI information is defined with the non-volatile storage information
+
+// Profile and Endpoint Configuration
+
+#define NUM_USER_ENDPOINTS 1
+#define EP_LIGHT 8
+#define MY_MAX_INPUT_CLUSTERS 1
+#define MY_MAX_OUTPUT_CLUSTERS 1
+#include "C:\MpZBee\ZigBeeStack\zHCLighting.h"
+
+#endif
