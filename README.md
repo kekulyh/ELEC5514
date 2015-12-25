@@ -1,4 +1,5 @@
-# ELEC5514 Lab and Project
+#ELEC5514 NETWORKED EMBEDDED SYSTEMS
+##Lab and Project
 ****
 
 ##Lab
